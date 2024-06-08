@@ -9,16 +9,11 @@
 ********************************************************************************/
 const collegeData = require('./modules/collegeData.js');
 
-collegeData.initialize()
-    .then(() => {
-        return collegeData.getAllStudents();})
-    .then((students) => {
+collegeData.initialize().then(() => {
+        return collegeData.getAllStudents();}).then((students) => {
         console.log(`Successfully retrieved ${students.length} students`);
-        return collegeData.getCourses();})
-    .then((courses) => {
+        return collegeData.getCourses();}).then((courses) => {
         console.log(`Successfully retrieved ${courses.length} courses`);
-        return collegeData.getTAs();})
-    .then((TAs) => {
-        console.log(`Successfully retrieved ${TAs.length} TAs`);})
-    .catch((err) => {
+        return collegeData.getTAs();}).then((TAs) => {
+        console.log(`Successfully retrieved ${TAs.length} TAs`);}).catch((err) => {
         console.log(err);});
