@@ -27,32 +27,38 @@ function initialize() {
 
                 dataCollection = new Data(studentData, courseData);
                 resolve();
-            });
-        });
-    });
+            }
+                       );
+        }
+                   );
+    }
+                      );
 }
 
 function getAllStudents() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) =>
+        {
         if (dataCollection.students.length > 0) {
             resolve(dataCollection.students);
         } else {
             reject("no results returned");
         }
-    });
+    }
+                      );
 }
 
 function getTAs() {
     return new Promise((resolve, reject) => {
         let TAs = dataCollection.students.filter(student => student.TA === true);
-        if (TAs.length > 0) {
+        if (TAs.length > 0) 
+        {
             resolve(TAs);
         } else {
             reject("no results returned");
         }
-    });
+    }
+                      );
 }
-
 function getCourses() {
     return new Promise((resolve, reject) => {
         if (dataCollection.courses.length > 0) {
@@ -60,6 +66,7 @@ function getCourses() {
         } else {
             reject("no results returned");
         }
-    });
+    }
+                      );
 }
 module.exports = { initialize, getAllStudents, getTAs, getCourses };
