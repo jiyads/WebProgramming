@@ -1,14 +1,12 @@
 const fs = require('fs');
-
 class Data {
-    constructor(students, courses) {
+    constructor(students, courses) 
+     {
         this.students = students;
         this.courses = courses;
-    }
+     }
 }
 let dataCollection = null;
-
-
 function initialize() {
     return new Promise((resolve,reject)=>{
         fs.readFile('./Data/students.json', 'utf8', (err, studentDataFromFile) => {
@@ -64,5 +62,4 @@ function getCourses() {
         }
     });
 }
-
 module.exports = { initialize, getAllStudents, getTAs, getCourses };
